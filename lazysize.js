@@ -1,13 +1,3 @@
-/**
- * for responsive images to be loaded into img tags:
- * 1. place 'src-set' attribute on the image tag
- * 2. for 'src-set' values, plaze the image location followed by one space and the breakpoint width
- *     ex: <img src-set="/path/to/image.png 1024" / >
- * 3. seperate each additional image and breakpoint by one comma and no space
- *     ex: <img src-set="/path/to/image.png 1024,/path/to/nextImage.png 768" / >
- * 4. place the class name 'lazysize' on the image tag
- *     ex: <img class="lazysize" src-set="/path/to/image.png 1024,/path/to/nextImage.png 768" / >
- */
 var lazySize = (function() {
 	var _ = {
 		images: [],
