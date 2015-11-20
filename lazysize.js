@@ -17,7 +17,7 @@ var lazySize = (function() {
 		resizeTimeout: null,
 
 		givenWidths: [],
-        
+
 		imgTags: document.getElementsByClassName('lazysize'),
 
 		/**
@@ -52,7 +52,7 @@ var lazySize = (function() {
 			console.log(this.lazySizes);
 		},
 
-        /**
+		/**
 		 * takes current width of the image tags parent div and compares
 		 * with the breakpoints provided in the image src-set attribute
 		 * @param divWidth width of image tags parent div
@@ -66,17 +66,17 @@ var lazySize = (function() {
 				});
 			}(givenWidths));
 
-            var resizeWidth = lazyWidths[lazyWidths.length - 1];
+			var resizeWidth = lazyWidths[lazyWidths.length - 1];
 			for (var i = lazyWidths.length - 1; i >= 0; i--) {
-                var currentWidth = lazyWidths[i];
+				var currentWidth = lazyWidths[i];
 				var nextLargest = lazyWidths[--i];
 
-                resizeWidth = (divWidth <= currentWidth && divWidth >= nextLargest)?
-					    currentWidth : nextLargest;
+				resizeWidth = (divWidth <= currentWidth && divWidth >= nextLargest)?
+					currentWidth : nextLargest;
 			}
 			return resizeWidth;
 		}, 
-        
+
 		/**
 		 * loops through an array of the corresponding breakpoints object property
 		 * replaces all current image src tags with the new breakpoint image
@@ -84,10 +84,6 @@ var lazySize = (function() {
 		resizeHandler: function() {
 			var pw = _.imgTags[0].parentElement.offsetWidth, 
 				size = _.findRightSize(pw, _.givenWidths);
-
-				console.log('givenwidth', _.givenWidths);
-				console.log('current width:', pw);
-				console.log('closes size is',  size);
 
 				for (var p = 0; p < _.lazySizes[size].length; p++) {
 					console.log(_.lazySizes[size][p]);
