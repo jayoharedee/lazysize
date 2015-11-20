@@ -17,9 +17,10 @@ var lazySize = (function() {
             var images = _.imgTags; 
 
             for (var i = images.length - 1; i >= 0; i--) {
-                var image = images[i];
-                this.images.push(image);
-                var srcSet = image.getAttribute('src-set');
+                var image = images[i],
+                    srcSet = image.getAttribute('src-set');
+
+                _.images.push(image);
                 srcSet = srcSet.split(',');
 
                 for (var j = srcSet.length - 1; j >= 0; j--) {
@@ -27,15 +28,15 @@ var lazySize = (function() {
                         width = src[1],
                         imgSrc = src[0];
 
-                    if (!this.lazySizes[width]) {
-                        this.lazySizes[width] = [imgSrc];
+                    if (!_.lazySizes[width]) {
+                        _.lazySizes[width] = [imgSrc];
                         continue;
                     }
 
-                    this.lazySizes[width].push(imgSrc);
+                    _.lazySizes[width].push(imgSrc);
 
-                    if (this.givenWidths.indexOf(width) < 0) {
-                        this.givenWidths.push(width);
+                    if (_.givenWidths.indexOf(width) < 0) {
+                        _.givenWidths.push(width);
                     }
                 }
             }
@@ -83,9 +84,9 @@ var lazySize = (function() {
          * event handler that is attached to the resize event listener
          */
         resizeThrottler: function() {
-            if (!this.resizeTimeout) {
-                this.resizeTimeout = setTimeout(function() {
-                    this.resizeTimeout = null;
+            if (!_.resizeTimeout) {
+                _.resizeTimeout = setTimeout(function() {
+                    _.resizeTimeout = null;
                     _.resizeHandler();
                 }, 66);
             }
@@ -103,4 +104,3 @@ var lazySize = (function() {
 }());
 
 lazySize.init();
-//fix indentation
