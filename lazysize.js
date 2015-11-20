@@ -1,4 +1,3 @@
-
 var lazySize = (function() {
 	var _ = {
 		images: [],
