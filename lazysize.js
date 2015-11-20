@@ -1,3 +1,4 @@
+
 var lazySize = (function() {
 	var _ = {
 		images: [],
@@ -105,3 +106,4 @@ var lazySize = (function() {
 }());
 
 lazySize.init();
+//fix indentation
