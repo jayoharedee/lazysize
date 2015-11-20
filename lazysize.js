@@ -74,9 +74,9 @@ var lazySize = (function() {
             var pw = _.imgTags[0].parentElement.offsetWidth, 
                 size = _.findRightSize(pw, _.givenWidths);
 
-                for (var p = 0; p < _.lazySizes[size].length; p++) {
-                    _.images[p].src = this.lazySizes[size][p]; 
-                }
+            for (var p = 0; p < _.lazySizes[size].length; p++) {
+                _.images[p].src = this.lazySizes[size][p]; 
+            }
         },
 
         /**
